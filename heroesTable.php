@@ -1,5 +1,16 @@
 <?php
-echo 'current user = ' . get_current_user();
+// get current user name
+$processUser = posix_getpwuid(posix_geteuid());
+?> 
+<div><?php echo $processUser['name']; ?></div>
+
+<?php
+// change user name
+$processUser['name'] = 'chillman';
+?> 
+<div><?php echo $processUser['name']; ?></div>
+
+<?php
 $heroes = "SELECT id, name, about_me, biography FROM heroes";
 $result = $conn->query($heroes);
     if ($result->num_rows > 0) {
