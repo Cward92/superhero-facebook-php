@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12">
                 LOGIN:
-                <form action="userRegistration.php" method="post">
+                <form autocomplete="off" action="userRegistration.php" method="post">
                     <select name="user" id="user">
                         <option value="">-</option>
                         <?php 
@@ -38,7 +38,7 @@
                         ?>
                     </select>
                     <input type="submit">
-                </form>
+                </form >
                 <div class="col-12">
                     <a href="userRegistration.php">To register as a new user, click HERE</a>
                 </div>

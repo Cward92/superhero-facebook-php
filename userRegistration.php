@@ -14,7 +14,7 @@ if (!$user) {
     $conn->close();
 
 ?>
-    <form action='newUser.php' method="post">
+    <form autocomplete="off" action='newUser.php' method="post" enctype="multipart/form-data">
         Name: <input type="text" maxLength="50" name="name"><br>
         About Me: <textarea type="text" maxLength="250" name="about_me" cols="50"></textarea><br>
         Biography: <textarea type="text" name="biography" rows="5" cols="50"></textarea><br>
@@ -28,7 +28,9 @@ if (!$user) {
             }
             ?>
         </select>
-        <input type="submit">
+        Select image to upload for profile:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Submit All Info" name="submit">
     </form>
 <?php
 } else {

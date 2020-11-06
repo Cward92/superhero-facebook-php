@@ -12,11 +12,15 @@
   <body>
       <div class="container">
         <div class="row">
-            <div><p>Edit Your Info (leave blank or similar to leave info unchanged)</p></div>
-            <form action='update.php' method="post">
-                Name: <input type="text" maxLength="50" name="name"><br>
-                About Me: <textarea type="text" maxLength="250" name="about_me" cols="50"></textarea><br>
-                Biography: <textarea type="text" name="biography" rows="5" cols="50"></textarea><br>
+            <div class="col-6">
+                <p>Edit Your Info (leave blank or similar to leave info unchanged)</p>
+            </div>
+        </div>
+        <div class="row">
+            <form autocomplete="off" action='update.php' method="post">
+                Name: <input type="text" maxLength="50" name="name" text="newUser"><br>
+                About Me: <textarea type="text" maxLength="250" name="about_me" cols="50" text="text"></textarea><br>
+                Biography: <textarea type="text" name="biography" rows="5" cols="50" text="text"></textarea><br>
                 Superpower: <select name="ability">
         <?php
         $abilities = "SELECT * FROM abilities";

@@ -44,7 +44,7 @@ session_start();
                             <img class="card-img-top" src="..." alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-text"><?php echo $row['name'] ?></h4>
-                                <form action="functions.php" method="post">
+                                <form action="buttonFunctions.php" method="post">
                                     <?php if (trim($_POST['id']) === trim($_SESSION['user'])) { ?>
                                         <button class='btn btn-primary' type="submit" name="edit" value="<?php echo $_POST['id'] ?>">Edit</button>
                                         <button class='btn btn-danger' type="submit" name="delete" value="<?php echo $_POST['id'] ?>">Delete</button>
