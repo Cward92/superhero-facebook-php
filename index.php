@@ -1,12 +1,3 @@
-<?php
-// Create connection
-$conn = new mysqli('localhost', 'root', 'root', 'Heroes');
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -23,12 +14,35 @@ if ($conn->connect_error) {
 <body>
     <div class="container">
         <div class="row">
-            <?php
-            if($_GET['state'] == 'profile'){
-                include 'profile.php';
-            } else {
-                include 'heroesTable.php';
-            };?>
+            <div class="col-12">
+                LOGIN:
+                <form action="userRegistration.php" method="post">
+                    <select name="user" id="user">
+                        <option value="">-</option>
+                        <?php 
+                        $conn = new mysqli('localhost', 'root', 'root', 'Heroes');
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $heroes = "SELECT id, name FROM heroes";
+                        $result = $conn->query($heroes);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) { 
+                                ?>
+                                <option value=<?php echo $row['id']; ?>><?php echo $row['name']; ?></option><?php
+
+                            }
+                        }
+                        $conn->close();
+                        ?>
+                    </select>
+                    <input type="submit">
+                </form>
+                <div class="col-12">
+                    <a href="userRegistration.php">To register as a new user, click HERE</a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Optional JavaScript -->
